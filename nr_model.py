@@ -101,8 +101,8 @@ class Model(chainer.Chain):
 	    	a = F.split_axis(a, self.n_images, 0)
         else:
             h, a = [h], [a]
-    	self.y = h
-    	self.a = a
+        self.y = h
+        self.a = a
 
     def weighted_loss(self, h, a, t):
     	self.loss = 0
