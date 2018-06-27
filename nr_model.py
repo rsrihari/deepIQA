@@ -13,7 +13,6 @@ xp = cuda.cupy
 
 class Model(chainer.Chain):
 
-
     def __init__(self, top = "patchwise"):
         super(Model, self).__init__(
             conv1 = L.Convolution2D(3, 32, 3, pad=1),
@@ -47,7 +46,6 @@ class Model(chainer.Chain):
         else:
             x = x_data
             x_data = x.data
-    
         self.n_images = y_data.shape[0]
         self.n_patches = x_data.shape[0]
         self.n_patches_per_image = self.n_patches / self.n_images
