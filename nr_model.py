@@ -99,7 +99,6 @@ class Model(chainer.Chain):
     	if self.n_images > 1:
             h = F.split_axis(h, self.n_images, 0)
             a = F.split_axis(a, self.n_images, 0)
-        
         else:
             h, a = [h], [a]
         self.y = h
