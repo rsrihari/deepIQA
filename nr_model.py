@@ -97,8 +97,9 @@ class Model(chainer.Chain):
     	self.loss = F.sum(abs(h - F.reshape(t, (-1,1)))) 
     	self.loss /= self.n_patches
     	if self.n_images > 1:
-	    	h = F.split_axis(h, self.n_images, 0)
-	    	a = F.split_axis(a, self.n_images, 0)
+            h = F.split_axis(h, self.n_images, 0)
+            a = F.split_axis(a, self.n_images, 0)
+
         else:
             h, a = [h], [a]
         self.y = h
