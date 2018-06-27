@@ -47,9 +47,10 @@ class Model(chainer.Chain):
         else:
             x = x_data
             x_data = x.data
-    	self.n_images = y_data.shape[0]
-    	self.n_patches = x_data.shape[0]
-    	self.n_patches_per_image = self.n_patches / self.n_images
+    
+        self.n_images = y_data.shape[0]
+        self.n_patches = x_data.shape[0]
+        self.n_patches_per_image = self.n_patches / self.n_images
 
         h = F.relu(self.conv1(x))
         h = F.relu(self.conv2(h))
