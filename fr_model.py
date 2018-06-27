@@ -84,9 +84,9 @@ class FRModel(chainer.Chain):
             x = x_data
             x_data = x.data
 
-    	self.n_images = y_data.shape[0]
-    	self.n_patches = x_data.shape[0]
-    	self.n_patches_per_image = n_patches_per_image
+        self.n_images = y_data.shape[0]
+        self.n_patches = x_data.shape[0]
+        self.n_patches_per_image = n_patches_per_image
         x_ref = Variable(x_ref_data, volatile=not train)
        
         h = self.extract_features(x, train=train)
@@ -96,7 +96,7 @@ class FRModel(chainer.Chain):
 
         h = F.concat((h-h_ref, h, h_ref))
 
-	h_ = h # save intermediate features
+        h_ = h # save intermediate features
         h = F.dropout(F.relu(self.fc1(h)), train=train, ratio=0.5)
         h = self.fc2(h)
 
